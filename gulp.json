@@ -1,0 +1,42 @@
+{
+    "build": {
+        "scope": {
+            "build-name": "afeditor",
+            "build-dir": "dist",
+            "src-dir": "src",
+            "src-dir-app": "src/app"
+        },
+        "clean": true,
+        "task-dir": "tasks/build",
+        "task": {
+            "app": true
+        }
+    },
+    "build-demo": {
+        "scope": {
+            "build-name": "demo",
+            "build-dir": "dist-demo",
+            "build-dir-app": "dist-demo/app",
+            "build-dir-vendor": "dist-demo/vendor",
+            "build-dir-dist": "dist-demo/vendor/afeditor",
+            "src-dir": "src-demo",
+            "src-dir-css": "src-demo/css",
+            "src-dir-app": "src-demo/app",
+            "src-dir-dist": "dist",
+            "vendor-copy": {
+                "asadmin": "vendor/asadmin/dist/**/*"
+            }
+        },
+        "default": true,
+        "clean": true,
+        "after": ["build"],
+        "task-dir": "tasks/build-demo",
+        "task": {
+            "app": true,
+            "css": true,
+            "copy": true,
+            "dist": true,
+            "vendor": true
+        }
+    }
+}
