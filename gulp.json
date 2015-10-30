@@ -1,33 +1,33 @@
 {
     "build": {
         "scope": {
-            "build-name": "afeditor",
+            "build-name": "angular-form-editor",
             "build-dir": "dist",
             "src-dir": "src",
             "src-dir-app": "src/app"
         },
+        "default": true,
         "clean": true,
         "task-dir": "tasks/build",
         "task": {
             "app": true
         }
     },
-    "build-demo": {
+    "demo": {
         "scope": {
             "build-name": "demo",
             "build-dir": "dist-demo",
             "build-dir-app": "dist-demo/app",
             "build-dir-vendor": "dist-demo/vendor",
-            "build-dir-dist": "dist-demo/vendor/afeditor",
+            "build-dir-dist": "dist-demo/vendor/angular-form-editor",
             "src-dir": "src-demo",
             "src-dir-css": "src-demo/css",
             "src-dir-app": "src-demo/app",
             "src-dir-dist": "dist",
             "vendor-copy": {
-                "asadmin": "vendor/asadmin/dist/**/*"
+                "asadmin": "vendor/angular-semantic-admin/dist/**/*"
             }
         },
-        "default": true,
         "clean": true,
         "after": ["build"],
         "task-dir": "tasks/build-demo",
