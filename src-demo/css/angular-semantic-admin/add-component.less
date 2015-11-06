@@ -1,0 +1,114 @@
+/* addcomponent.less */
+
+.addcomponent-header {
+  padding: .92857143em 1.14285714em;
+  box-shadow: 0 3px 2px -2px rgba(0, 0, 0, .1);
+  z-index: 1;
+}
+
+.addcomponent-body {
+  position: absolute;
+  top: 87px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+
+  & > .menu.accordion.vertical {
+    border: 0;
+    box-shadow: none;
+
+    & > .item {
+      background: initial;
+      padding: 0;
+      border: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+
+      & .title {
+        padding: 9px 16px;
+        background-color: #e9e9e9;
+        border-top: 1px solid #dedede;
+        transition: border-color 0.1s ease-in-out;
+        border-bottom: 1px solid #e9e9e9;
+      }
+
+      &:not(:last-child) .title.active {
+        border-bottom: 1px solid #dedede;
+      }
+
+      &:last-child .title {
+        border-bottom: 1px solid #dedede;
+      }
+
+      & > .menu.content {
+        border: 0;
+        box-shadow: none;
+
+        & > .item {
+          width: 50%;
+          height: 119.5px;
+          float: left;
+          padding-top: 30px;
+          padding-bottom: 30px;
+          border-right: 1px solid #dedede;
+          border-bottom: 1px solid #dedede;
+          padding-left: 10px !important;
+          padding-right: 10px !important;
+
+          &:not(.icon) {
+            font-size: 12px !important;
+          }
+
+          &:hover {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .2);
+          }
+
+          &:nth-child(even) {
+            border-right: 0;
+          }
+
+          & .label {
+            float: none;
+            margin: 0 auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: transparent;
+            color: #383838;
+            bottom: 7px;
+            left: 7px;
+            right: 7px;
+            max-height: 28px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1;
+            display: -webkit-box;
+            font-size: 12px;
+            font-weight: normal;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        & > .menu {
+          & > .item {
+            &:last-child {
+              border-bottom: 0;
+            }
+
+            &:nth-last-child(2):not(:nth-child(even)) {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+}

@@ -7,15 +7,19 @@ var gulp = require('gulp')
 
 module.exports = function () {
 
+    var _this = this;
+
     var input = this.input(this.srcDir, ['**/*.json', '**/*.*.js'])
         , inputTpl = this.input(this.srcDir, ['**/*.tpl.html']);
 
     var options = {
         module: this.buildName,
         transformUrl: function(url) {
-            return this.buildName + '/' + url.match(/[\w-]+.tpl.html$/g)[0];
+            return _this.buildName + '/' + url.match(/[\w-]+.tpl.html$/g)[0];
         }
     }
+
+    var vendorStream = gulp.src(this.vendorConcat);
 
     var tplStream = gulp.src(inputTpl)
         .pipe(templateCache(options));
@@ -24,8 +28,10 @@ module.exports = function () {
         .pipe(ngjson.module())
         .pipe(ngjson.constant());
 
-    return es.merge(jsStream, tplStream)
+    return es.merge(jsStream, tplStream, vendorStream)
         .pipe(order([
+            "**/angular-drag-and-drop-lists.js",
+            "**/angular-form-object.js",
             "**/*.module.json",
             "**/*.module.js",
             "**/*.constant.json",

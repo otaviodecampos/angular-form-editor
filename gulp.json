@@ -3,14 +3,24 @@
         "scope": {
             "build-name": "angular-form-editor",
             "build-dir": "dist",
+            "build-fonts": "dist/fonts",
             "src-dir": "src",
-            "src-dir-app": "src/app"
+            "src-dir-css": "src/css",
+            "src-dir-app": "src/app",
+            "vendor-fonts": [
+                "vendor/bootstrap/fonts/*"
+            ],
+            "vendor-concat": [
+                "vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"
+            ]
         },
         "default": true,
         "clean": true,
         "task-dir": "tasks/build",
         "task": {
-            "app": true
+            "app": true,
+            "css": true,
+            "fonts": true
         }
     },
     "demo": {
@@ -24,9 +34,9 @@
             "src-dir-css": "src-demo/css",
             "src-dir-app": "src-demo/app",
             "src-dir-dist": "dist",
-            "vendor-copy": {
-                "asadmin": "vendor/angular-semantic-admin/dist/**/*"
-            }
+            "vendor-copy": [
+                "vendor/angular-semantic-admin/dist/**/*"
+            ]
         },
         "clean": true,
         "after": ["build"],

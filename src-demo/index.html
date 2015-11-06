@@ -2,8 +2,9 @@
 <html ng-app="demo">
 <head>
     <title>Demo Angular-Form-Editor</title>
-    <link rel="stylesheet" type="text/css" href="/vendor/asadmin/asadmin.css">
-	<link rel="stylesheet" type="text/css" href="/app/demo.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/angular-form-editor/angular-form-editor.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/angular-semantic-admin/dist/angular-semantic-admin.css">
+    <link rel="stylesheet" type="text/css" href="/app/demo.css">
 </head>
 <body>
 <as-admin>
@@ -12,10 +13,24 @@
             Device mode
         </h4>
 
-        <div class="device phone"></div>
+        <div class="device phone" ng-controller="DemoCtrl as demo">
+            <afe-canvas model="demo.model" layout="demo.layout">
+                <div afe-properties class="properties-component">
+                    <div class="ui segments">
+                        <div class="ui segment inverted">
+                            <p>Linha</p>
+                        </div>
+                        <div class="ui secondary segment inverted">
+                            <p>Secondary Content</p>
+                        </div>
+                    </div>
+                </div>
+            </afe-canvas>
+        </div>
     </div>
 </as-admin>
-<script src="/vendor/asadmin/asadmin.js"></script>
+<script src="/vendor/angular-semantic-admin/dist/angular-semantic-admin.js"></script>
+<script src="/vendor/angular-form-editor/angular-form-editor.js"></script>
 <script src="/app/demo.js"></script>
 </body>
 </html>

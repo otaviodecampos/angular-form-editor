@@ -2,8 +2,8 @@
     "itens": [
         {
             "icon": "plus",
-            "open": false,
-            "templateUrl": "demo/add.tpl.html"
+            "open": true,
+            "templateUrl": "demo/addcomponent.tpl.html"
         },
         {
             "icon": "configure"

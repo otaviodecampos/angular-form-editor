@@ -1,0 +1,31 @@
+{
+    "model": {
+        "attr1": "a",
+        "attr2": {
+            "attr3": 2
+        },
+        "attr4": "c"
+    },
+    "layout": {
+        "horizontal": true,
+        "components": [
+            {
+                "order": 1,
+                "name": "row",
+                "components": [
+                    {
+                        "name": "col",
+                        "components": [
+                            {
+                                "name": "text"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "$constant": {
+        "$module": "demo"
+    }
+}

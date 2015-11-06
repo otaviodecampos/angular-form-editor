@@ -1,0 +1,28 @@
+{
+  "name": "angular-semantic-admin",
+  "authors": [
+    "otaviodecampos <otaviodecampos@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4"
+  },
+  "homepage": "https://github.com/otaviodecampos/angular-semantic-admin",
+  "_release": "56b83de597",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "56b83de597f1fd18de91f9b9bc88a154933d0997"
+  },
+  "_source": "git://github.com/otaviodecampos/angular-semantic-admin.git",
+  "_target": "*",
+  "_originalSource": "angular-semantic-admin"
+}

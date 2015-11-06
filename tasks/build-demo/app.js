@@ -7,13 +7,15 @@ var gulp = require('gulp')
 
 module.exports = function () {
 
+    var _this = this;
+
     var input = this.input(this.srcDirApp, ['**/*.json', '**/*.*.js'])
         , inputTpl = this.input(this.srcDirApp, ['**/*.tpl.html']);
 
     var options = {
         module: this.buildName,
         transformUrl: function(url) {
-            return this.buildName + '/' + url.match(/[\w-]+.tpl.html$/g)[0];
+            return _this.buildName + '/' + url.match(/[\w-]+.tpl.html$/g)[0];
         }
     }
 

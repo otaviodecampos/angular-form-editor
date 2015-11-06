@@ -1,0 +1,7 @@
+{
+    "properties": {},
+    "components": [],
+    "$constant": {
+        "$module": "angular-form-editor"
+    }
+}

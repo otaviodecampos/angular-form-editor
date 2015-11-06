@@ -4,7 +4,7 @@ justfiles = require('./util/justfiles');
 module.exports = function build() {
 
     var input = this.input(this.srcDirDist, [
-        '**/*.js'
+        '**/*'
     ]);
 
     return gulp.src(input)

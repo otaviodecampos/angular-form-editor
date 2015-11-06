@@ -1,0 +1,27 @@
+<div ng-controller="AddComponentCtrl as addCtrl">
+    <div class="ui form addcomponent-header">
+        <div class="field">
+            <label>Biblioteca</label>
+            <select class="ui dropdown" ng-model="addCtrl.selectedLibraryName">
+                <option value="{{ library.name }}" ng-init="addCtrl.setDefault(library)" ng-repeat="library in addCtrl.libraries">{{ library.label }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="addcomponent-body" ng-if="addCtrl.selectedLibraryName">
+        <div ui-accordion="{ exclusive: false }" class="ui vertical following fluid accordion text menu">
+            <div class="item" ng-repeat="category in addCtrl.libraries[addCtrl.selectedLibraryName].categories">
+                <a class="title active">
+                    <i class="dropdown icon"></i>
+                    <b>{{ category.label }}</b>
+                </a>
+
+                <div class="ui labeled icon menu content active">
+                    <a class="item" afe-draggable ng-repeat="component in category.components" dnd-type="component.name" dnd-draggable="component" dnd-effect-allowed="copy">
+                        <i ng-include="component.templatePreviewUrl || component.templateUrl"></i>
+                        <span class="label">{{ component.label }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 {
     "name": "demo",
     "dependencies": [
-        "asadmin",
-		"afeditor"
+        "angular-semantic-admin",
+		"angular-form-editor"
     ]
 }

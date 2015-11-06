@@ -1,0 +1,23 @@
+<div class="afe-component-list"
+    dnd-list="afeList"
+     dnd-horizontal-list="{{ $options.dragHorizontal }}"
+     dnd-disable-if="afeList.length >= $options.max"
+     dnd-allowed-types="{{ $options.allowed }}"
+     dnd-drop="$listCtrl.dragdrop(event, index, item, external, type)"
+     dnd-dragover="$listCtrl.dragover(event, index, type)">
+
+    <afe-component class="afe-component"
+                  ng-class="{ selected: $canvasCtrl.selected === component }"
+                  dnd-selected="$canvasCtrl.select(component, event)"
+                  dnd-draggable="component"
+                  dnd-type="component.name"
+                  dnd-effect-allowed="move"
+                  dnd-moved="afeList.splice($index, 1);"
+                  dnd-dragstart="$listCtrl.dragstart(component, event)"
+                  dnd-canceled="$listCtrl.dragcancel(component, event)"
+                  dnd-dragend="$listCtrl.dragend(component, event)"
+                  ng-repeat="component in afeList">
+    </afe-component>
+
+    <div class="dndPlaceholder"></div>
+</div>

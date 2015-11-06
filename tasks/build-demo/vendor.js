@@ -7,7 +7,7 @@ module.exports = function build() {
 
     for(var vendor in this.vendorCopy) {
         var input = [].concat(this.vendorCopy[vendor]);
-        srcs.push(gulp.src(input, {base: 'asadmin'}));
+        srcs.push(gulp.src(input, { base: 'vendor' }));
     }
 
     return es.merge(srcs)

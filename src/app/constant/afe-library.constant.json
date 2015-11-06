@@ -1,0 +1,66 @@
+{
+    "libraries": [
+        {
+            "name": "bootstrap3",
+            "label": "Bootstrap 3",
+            "default": true,
+            "categories": [
+                {
+                    "name": "layout",
+                    "label": "Layout",
+                    "components": [
+                        {
+                            "name": "fluidcontainer",
+                            "label": "Fluid Container",
+                            "templateUrl": "angular-form-editor/fluid-container.tpl.html",
+                            "templatePreviewUrl": "angular-form-editor/row-preview.tpl.html"
+                        },
+                        {
+                            "name": "row",
+                            "label": "Linha",
+                            "templateUrl": "angular-form-editor/row.tpl.html",
+                            "templatePreviewUrl": "angular-form-editor/row-preview.tpl.html"
+                        },
+                        {
+                            "name": "col",
+                            "label": "Coluna",
+                            "templateUrl": "angular-form-editor/col.tpl.html",
+                            "templatePreviewUrl": "angular-form-editor/col-preview.tpl.html",
+                            "properties": {
+                                "width": {
+                                    "xs": 12,
+                                    "sm": 12,
+                                    "md": 12,
+                                    "lg": 12
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "form",
+                    "label": "Form",
+                    "components": [
+                        {
+                            "name": "teste",
+                            "label": "Teste",
+                            "templateUrl": "angular-form-editor/teste.tpl.html"
+                        },
+                        {
+                            "name": "text",
+                            "properties": {
+                                "label": "",
+                                "model": "",
+                                "placeholder": ""
+                            },
+                            "templateUrl": "angular-form-editor/text.tpl.html"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "$constant": {
+        "$module": "angular-form-editor"
+    }
+}
