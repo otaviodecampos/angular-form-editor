@@ -1,6 +1,14 @@
 {
     "build": {
-        "scope": {
+        "clean": true,
+        "task-dir": "tasks/build",
+        "watch": false,
+        "task": {
+            "app": true,
+            "css": true,
+            "fonts": true
+        },
+        "path": {
             "build-name": "angular-form-editor",
             "build-dir": "dist",
             "build-fonts": "dist/fonts",
@@ -11,20 +19,24 @@
                 "vendor/bootstrap/fonts/*"
             ],
             "vendor-concat": [
-                "vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"
+                "vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js",
+                "vendor/angular-form-object/lib/build/angular-form-object.js"
             ]
-        },
-        "default": true,
-        "clean": true,
-        "task-dir": "tasks/build",
-        "task": {
-            "app": true,
-            "css": true,
-            "fonts": true
         }
     },
     "demo": {
-        "scope": {
+        "default": true,
+        "clean": true,
+        "after": ["build"],
+        "task-dir": "tasks/build-demo",
+        "task": {
+            "app": true,
+            "css": true,
+            "copy": true,
+            "dist": true,
+            "vendor": true
+        },
+        "path": {
             "build-name": "demo",
             "build-dir": "dist-demo",
             "build-dir-app": "dist-demo/app",
@@ -37,16 +49,6 @@
             "vendor-copy": [
                 "vendor/angular-semantic-admin/dist/**/*"
             ]
-        },
-        "clean": true,
-        "after": ["build"],
-        "task-dir": "tasks/build-demo",
-        "task": {
-            "app": true,
-            "css": true,
-            "copy": true,
-            "dist": true,
-            "vendor": true
         }
     }
 }

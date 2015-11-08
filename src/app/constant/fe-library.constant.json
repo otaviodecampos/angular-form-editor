@@ -10,12 +10,6 @@
                     "label": "Layout",
                     "components": [
                         {
-                            "name": "fluidcontainer",
-                            "label": "Fluid Container",
-                            "templateUrl": "angular-form-editor/fluid-container.tpl.html",
-                            "templatePreviewUrl": "angular-form-editor/row-preview.tpl.html"
-                        },
-                        {
                             "name": "row",
                             "label": "Linha",
                             "templateUrl": "angular-form-editor/row.tpl.html",
@@ -42,12 +36,8 @@
                     "label": "Form",
                     "components": [
                         {
-                            "name": "teste",
-                            "label": "Teste",
-                            "templateUrl": "angular-form-editor/teste.tpl.html"
-                        },
-                        {
-                            "name": "text",
+                            "name": "textinput",
+                            "label": "Input de Texto",
                             "properties": {
                                 "label": "",
                                 "model": "",
@@ -59,8 +49,5 @@
                 }
             ]
         }
-    ],
-    "$constant": {
-        "$module": "angular-form-editor"
-    }
+    ]
 }

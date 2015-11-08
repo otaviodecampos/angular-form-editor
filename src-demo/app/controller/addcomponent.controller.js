@@ -3,8 +3,8 @@
     angular.module('demo')
         .controller('AddComponentCtrl', Controller);
 
-    function Controller(AfeLibrary) {
-        this.libraries = AfeLibrary();
+    function Controller(FeLibrary) {
+        this.libraries = FeLibrary();
         this.selectedLibraryName = "";
 
         this.setDefault = function(library) {

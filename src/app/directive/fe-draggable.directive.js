@@ -1,7 +1,7 @@
 (function() {
 
     angular.module('angular-form-editor')
-        .directive('afeDraggable', Directive);
+        .directive('feDraggable', Directive);
 
     function Directive() {
         return {

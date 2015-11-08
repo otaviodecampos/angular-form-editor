@@ -1,31 +1,31 @@
 (function () {
 
     angular.module('angular-form-editor')
-        .directive('afeModel', Directive);
+        .directive('feModel', Directive);
 
     function Directive($compile, $timeout) {
         return {
             restrict: 'A',
-            require: '?^afeCanvas',
-            link: function (scope, element, attrs, afeCanvas) {
+            require: '?^feCanvas',
+            link: function (scope, element, attrs, feCanvas) {
 
-                if(!afeCanvas) return;
+                if(!feCanvas) return;
 
                 var timeout
                     , pathValidator = /^\w+\.?\w+$/g;
 
-                element.removeAttr('afe-model');
+                element.removeAttr('fe-model');
 
-                scope.$watch(attrs.afeModel, function (afeModel) {
+                scope.$watch(attrs.feModel, function (feModel) {
 
                     $timeout.cancel(timeout);
                     timeout = $timeout(function () {
 
-                        if (!afeModel || !afeModel.match(pathValidator)) {
+                        if (!feModel || !feModel.match(pathValidator)) {
                             element.removeAttr('ng-model');
                         } else {
-                            scope.model = afeCanvas.model;
-                            element.attr('ng-model', 'model.' + afeModel);
+                            scope.model = feCanvas.model;
+                            element.attr('ng-model', 'model.' + feModel);
                         }
 
                         // Unbind all previous event handlers, this is necessary to remove previously linked models.

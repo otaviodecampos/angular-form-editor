@@ -1,4 +1,5 @@
 {
+    "visible": true,
     "itens": [
         {
             "icon": "plus",
@@ -15,18 +16,18 @@
             "icon": "maximize",
             "itens": [
                 {
-                    "icon": "desktop"
+                    "icon": "desktop",
+                    "click": "demo.layout.device = 'desktop'"
                 },
                 {
-                    "icon": "tablet"
+                    "icon": "tablet",
+                    "click": "demo.layout.device = 'tablet'"
                 },
                 {
-                    "icon": "mobile"
+                    "icon": "mobile",
+                    "click": "demo.layout.device = 'phone'"
                 }
             ]
         }
-    ],
-    "$constant": {
-        "$module": "demo"
-    }
+    ]
 }

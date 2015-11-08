@@ -2,15 +2,17 @@
     layout
    =================================================================== */
 
-.afe-canvas-body {
+.fe-canvas-body {
 
-  & > .afe-component-list {
+  & > .fe-component-list {
     height: 100%;
   }
 
   & .form-group {
     margin-bottom: 8px;
     margin-top: 8px;
+    float: left;
+    width: 100%;
   }
 
   & .panel {
@@ -18,12 +20,12 @@
     margin-top: 10px;
   }
 
-  .afe-component, [fe-list] {
+  .fe-component, [fe-list] {
     position: relative;
     z-index: 1;
   }
 
-  .afe-component {
+  .fe-component {
     padding: 6px;
   }
 
@@ -39,7 +41,7 @@
     padding: 6px;
   }
 
-  .afe-component-hover {
+  .fe-component-hover {
     display: block;
     position: absolute;
     top: 0px;
@@ -66,16 +68,16 @@
     display: none;
   }
 
-  .afe-component-label, .afe-component-control {
+  .fe-component-label, .fe-component-control {
     display: none;
   }
 
-  .afe-component-hover:hover, .afe-component.selected > .afe-component-hover {
+  .fe-component-hover:hover, .fe-component.selected > .fe-component-hover {
 
     border: 1px dashed rgba(102, 175, 233, 0.3);
     background-color: rgba(194, 221, 248, 0.5);
 
-    & .afe-component-label {
+    & .fe-component-label {
       position: absolute;
       bottom: 100%;
       font-size: 11px;
@@ -92,27 +94,27 @@
     }
   }
 
-  .afe-component-hover:hover {
+  .fe-component-hover:hover {
 
     border-top-left-radius: 0px;
 
-    & .afe-component-label {
+    & .fe-component-label {
       display: block;
     }
   }
 
-  .afe-component.selected > .afe-component-hover {
+  .fe-component.selected > .fe-component-hover {
 
     border-width: 2px;
     background: transparent;
     border-radius: 0;
     border-color: rgb(166, 207, 244);
 
-    & .afe-component-label {
+    & .fe-component-label {
       left: -2px;
     }
 
-    & .afe-component-control {
+    & .fe-component-control {
       display: block;
       position: absolute;
       top: 100%;
@@ -136,20 +138,20 @@
     }
   }
 
-  & .col .afe-component.selected label,
+  & .col .fe-component.selected label,
   & .col .panel {
     z-index: 999;
     position: relative;
   }
 
-  .afe-component.panel > .afe-component-hover {
+  .fe-component.panel > .fe-component-hover {
     top: -1px;
     left: -1px;
     right: -1px;
     bottom: -1px;
   }
 
-  .afe-component.selected {
+  .fe-component.selected {
 
     &.form-group {
 
@@ -163,10 +165,10 @@
 
     }
 
-    & > .afe-component-hover {
+    & > .fe-component-hover {
       border-style: solid;
 
-      & .afe-component-label {
+      & .fe-component-label {
         border-style: solid;
       }
 
@@ -180,25 +182,19 @@
   .dndPlaceholder {
     z-index: 1;
     padding: 0;
-
-    & .row {
+    
+    & > * {
       border: 1px dashed rgba(102, 175, 233, 0.3);
       background-color: rgba(194, 221, 248, 0.5);
       border-radius: 3px;
     }
 
-    & .col {
-      border: 1px dashed rgba(102, 175, 233, 0.3);
-      background-color: rgba(194, 221, 248, 0.5);
-      border-radius: 3px;
-    }
-
-    & .col {
+    /*& > .col{
       position: absolute !important;
       bottom: 0 !important;
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-    }
+    }*/
   }
 }

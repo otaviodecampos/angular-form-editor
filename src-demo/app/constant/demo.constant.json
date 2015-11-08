@@ -8,6 +8,7 @@
     },
     "layout": {
         "horizontal": true,
+        "library": "bootstrap3",
         "components": [
             {
                 "order": 1,
@@ -17,15 +18,16 @@
                         "name": "col",
                         "components": [
                             {
-                                "name": "text"
+                                "name": "textinput",
+                                "properties": {
+                                    "label": "attr1",
+                                    "model": "attr1"
+                                }
                             }
                         ]
                     }
                 ]
             }
         ]
-    },
-    "$constant": {
-        "$module": "demo"
     }
 }

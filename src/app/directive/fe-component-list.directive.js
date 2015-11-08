@@ -1,27 +1,27 @@
 (function () {
 
     angular.module('angular-form-editor')
-        .directive('afeComponentList', Directive);
+        .directive('feComponentList', Directive);
 
-    function Directive($parse, AfeLibrary) {
+    function Directive($parse, FeLibrary) {
         return {
             restrict: 'E',
-            templateUrl: 'angular-form-editor/afe-component-list.tpl.html',
+            templateUrl: 'angular-form-editor/fe-component-list.tpl.html',
             replace: true,
-            require: '^afeCanvas',
+            require: '^feCanvas',
             scope: {
-                afeList: '=',
-                afeListOptions: '@',
-                afeController: '@',
-                afeEventDragdrop: '@',
-                afeEventDragover: '@',
-                afeEventDragstart: '@',
-                afeEventDragcancel: '@',
-                afeEventDragend: '@',
-                afeEventDragleave: '@',
-                afeEventRemove: '@'
+                feList: '=',
+                feListOptions: '@',
+                feController: '@',
+                feEventDragdrop: '@',
+                feEventDragover: '@',
+                feEventDragstart: '@',
+                feEventDragcancel: '@',
+                feEventDragend: '@',
+                feEventDragleave: '@',
+                feEventRemove: '@'
             },
-            controller: 'AfeComponentListCtrl',
+            controller: 'FeComponentListCtrl',
             controllerAs: '$listCtrl',
             transclude: true,
             compile: function compile() {
@@ -29,15 +29,15 @@
                     pre: function (scope, element, attr, ctrl, transcludeFn) {
                         var placeholder = element.find('.dndPlaceholder')
                             , transcludeElement = transcludeFn()
-                            , listPlaceholder = transcludeElement.parent().children('afe-component-list-placeholder');
+                            , listPlaceholder = transcludeElement.parent().children('fe-component-list-placeholder');
 
                         scope.$canvasCtrl = ctrl;
-                        var options = scope.$options = scope.$listCtrl.$options = $parse(scope.afeListOptions)(scope) || {};
+                        var options = scope.$options = scope.$listCtrl.$options = $parse(scope.feListOptions)(scope) || {};
 
                         if (options.notAllowed) {
                             var allowed = [];
 
-                            var components = AfeLibrary('bootstrap3');
+                            var components = FeLibrary('bootstrap3');
                             angular.forEach(components, function(component) {
                                 if (options.notAllowed.indexOf(component.name) == -1) {
                                     allowed.push(component.name);

@@ -16,8 +16,8 @@
                 </a>
 
                 <div class="ui labeled icon menu content active">
-                    <a class="item" afe-draggable ng-repeat="component in category.components" dnd-type="component.name" dnd-draggable="component" dnd-effect-allowed="copy">
-                        <i ng-include="component.templatePreviewUrl || component.templateUrl"></i>
+                    <a class="item" ng-repeat="component in category.components" fe-draggable>
+                        <div dnd-type="component.name" dnd-draggable="component" dnd-effect-allowed="copy" ng-include="component.templatePreviewUrl || component.templateUrl"></div>
                         <span class="label">{{ component.label }}</span>
                     </a>
                 </div>

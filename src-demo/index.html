@@ -6,26 +6,26 @@
     <link rel="stylesheet" type="text/css" href="/vendor/angular-semantic-admin/dist/angular-semantic-admin.css">
     <link rel="stylesheet" type="text/css" href="/app/demo.css">
 </head>
-<body>
+<body ng-controller="DemoCtrl as demo">
 <as-admin>
     <div class="asadmin-workspace">
         <h4 class="asadmin-workspace-header ui header">
             Device mode
         </h4>
 
-        <div class="device phone" ng-controller="DemoCtrl as demo">
-            <afe-canvas model="demo.model" layout="demo.layout">
-                <div afe-properties class="properties-component">
+        <div class="device" ng-class="demo.layout.device ? demo.layout.device : 'phone'">
+            <fe-canvas model="demo.model" layout="demo.layout">
+                <div fe-properties class="properties-component">
                     <div class="ui segments">
                         <div class="ui segment inverted">
-                            <p>Linha</p>
+                            <p>{{ canvas.selected.label }}</p>
                         </div>
                         <div class="ui secondary segment inverted">
-                            <p>Secondary Content</p>
+                            <ng-object form-horizontal="true" form-no-editable-key="true" model="canvas.selected.properties"></ng-object>
                         </div>
                     </div>
                 </div>
-            </afe-canvas>
+            </fe-canvas>
         </div>
     </div>
 </as-admin>

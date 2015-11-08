@@ -1,19 +1,19 @@
 (function() {
 
     angular.module('angular-form-editor')
-        .directive('afeProperties', Directive);
+        .directive('feProperties', Directive);
 
-    function Directive($compile) {
+    function Directive($compile, $document) {
         return {
             restrict: 'EA',
-            require: '^afeCanvas',
+            require: '^feCanvas',
             scope: {},
             link: function(scope, element, attrs, canvasCtrl) {
-                scope.canvas = canvasCtrl;
-                element.removeAttr('afe-properties');
+                element.removeAttr('fe-properties');
                 element.attr('ng-style', '{left: canvas.propertiesX + "px", top: canvas.propertiesY + "px"}');
                 element.attr('ng-class', '{show: canvas.showProperties}');
-                $compile(element)(scope)
+                scope.canvas = canvasCtrl;
+                $compile(element)(scope);
             }
         }
     }

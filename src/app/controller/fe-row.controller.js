@@ -1,7 +1,7 @@
 (function () {
 
     angular.module('angular-form-editor')
-        .controller('AfeRowCtrl', Controller);
+        .controller('FeRowCtrl', Controller);
 
     function Controller($scope, $element, $timeout) {
 

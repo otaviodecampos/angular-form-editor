@@ -1,7 +1,7 @@
 (function () {
 
     angular.module('angular-form-editor')
-        .provider('AfeLibrary', Provider);
+        .provider('FeLibrary', Provider);
 
     function Provider() {
 

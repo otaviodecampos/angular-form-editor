@@ -49,13 +49,25 @@
           width: 50%;
           height: 119.5px;
           float: left;
-          padding-top: 30px;
+          padding-top: 10px;
           padding-bottom: 30px;
           border-right: 1px solid #dedede;
           border-bottom: 1px solid #dedede;
           padding-left: 10px !important;
           padding-right: 10px !important;
-
+          
+          & > div > * {
+            width: 80%;
+            height: 50%;
+            overflow: auto;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 30px;
+            right: 0;
+          }
+          
           &:not(.icon) {
             font-size: 12px !important;
           }

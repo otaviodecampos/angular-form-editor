@@ -1,12 +1,12 @@
 (function () {
 
     angular.module('angular-form-editor')
-        .directive('afeCanvas', Directive);
+        .directive('feCanvas', Directive);
 
     function Directive($compile, $templateCache, $timeout) {
 
-        var CONTROLLER_NAME = '$afeCanvasController'
-            , TEMPLATE_URL  = 'angular-form-editor/afe-canvas.tpl.html'
+        var CONTROLLER_NAME = '$feCanvasController'
+            , TEMPLATE_URL  = 'angular-form-editor/fe-canvas.tpl.html'
             , RESIZE_EVENT = 'resizeFrame'
 
         return {
@@ -15,8 +15,8 @@
                 model: "=",
                 layout: "="
             },
-            template: '<iframe class="afe-canvas"></iframe>',
-            controller: "AfeCanvasCtrl as canvas",
+            template: '<iframe class="fe-canvas"></iframe>',
+            controller: "FeCanvasCtrl as canvas",
             replace: true,
             bindToController: true,
             transclude: true,
@@ -26,7 +26,7 @@
                     , head = angular.element(document.head)
                     , body = angular.element(document.body)
                     , template = $templateCache.get(TEMPLATE_URL);
-
+                
                 transclude(scope, function (clone) {
                     element.parent().data(CONTROLLER_NAME, ctrl);
                     element.after(clone);
@@ -42,7 +42,7 @@
                 // this is necessary to maintain the behavior of require
                 body.data(CONTROLLER_NAME, ctrl);
                 body.append($compile(template)(scope));
-                body.addClass('afe-canvas-body');
+                body.addClass('fe-canvas-body');
 
                 $timeout(function () {
                     resizeFrame();

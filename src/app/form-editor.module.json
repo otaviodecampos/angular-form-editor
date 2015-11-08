@@ -1,6 +1,7 @@
 {
 	"name": "angular-form-editor",
 	"dependencies": [
-		"dndLists"
+		"dndLists",
+		"formobject"
 	]
 }

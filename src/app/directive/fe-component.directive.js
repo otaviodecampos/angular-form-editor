@@ -1,28 +1,37 @@
 (function () {
 
     angular.module('angular-form-editor')
-        .directive('afeComponent', Directive);
+        .directive('feComponent', Directive);
 
-    function Directive($http, $templateCache, $compile, $controller, AfeLibrary, FORM_COMPONENT) {
+    function Directive($http, $templateCache, $compile, $controller, FeLibrary, FORM_COMPONENT) {
         return {
             restrict: 'E',
             transclude: 'element',
-            require: '^afeComponentList',
-            controller: 'AfeComponentCtrl as componentCtrl',
+            require: ['^feComponentList', '^feCanvas'],
+            controller: 'FeComponentCtrl as componentCtrl',
             compile: function() {
                 return {
-                    post: function (scope, element, attrs, afeComponentListCtrl) {
-
-                        var templateUrl = AfeLibrary('bootstrap3', scope.component.name).templateUrl
+                    post: function (scope, element, attrs, ctrls) {
+                        
+                        var feComponentListCtrl = ctrls[0]
+                            , canvasCtrl = ctrls[1]
+                            , component = scope.component;
+                        
+                        var libraryComponent = angular.copy(FeLibrary('bootstrap3', component.name));
+                        var templateUrl = libraryComponent.templateUrl
                             , attrsNames = Object.keys(attrs);
-
-                        angular.merge(scope.component, FORM_COMPONENT);
-
-                        element.data('$afeEditorController', scope.$canvasCtrl);
+                        
+                        libraryComponent = angular.merge(angular.copy(FORM_COMPONENT), libraryComponent);
+                        
+                        var properties = angular.copy(component.properties);
+                        angular.merge(component, libraryComponent);
+                        angular.extend(component.properties, properties);
+                        
+                        element.data('$feCanvasController', canvasCtrl);
 
                         $http.get(templateUrl, {cache: $templateCache}).success(function (template) {
                             var newEl = angular.element(template);
-
+                            
                             for (var i = 0, len = attrsNames.length; i < len; i++) {
                                 var value = attrs[attrsNames[i]]
                                     , name = attrs.$attr[attrsNames[i]]
@@ -41,17 +50,18 @@
                                 }
                             }
 
-                            newEl.append('<afe-component-hover>');
-                            newEl.data('$afeEditorController', scope.$canvasCtrl);
+                            newEl.append('<fe-component-hover>');
+                            newEl.data('$feCanvasController', canvasCtrl);
                             newEl = $compile(newEl)(scope);
                             element.after(newEl);
+                            component.$element = newEl;
 
-                            var controllerName = newEl.attr('afe-controller');
+                            var controllerName = newEl.attr('fe-controller');
                             if (controllerName) {
                                 $controller(controllerName, {$scope: scope, $element: newEl}, false);
                             }
 
-                            scope.$listCtrl = afeComponentListCtrl;
+                            scope.$listCtrl = feComponentListCtrl;
                         });
                     }
                 }
